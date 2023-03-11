@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+.center-stepper{
+  display: flex;
+  justify-content: center;
+}
+
+#mainHeading{
+  color:red;
+}
+
+.stepper{
+  width:50%;
+}
+
+
+
+
