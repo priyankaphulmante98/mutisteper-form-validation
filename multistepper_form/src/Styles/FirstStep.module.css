@@ -10,10 +10,22 @@
 }
 
 .label{
-    width: 500px;
+    width: 520px;
     
 }
 
-button{
-    margin-left: 5px;
+.lab1{
+    margin-left: -450px;
 }
+.lab2{
+    margin-left: -370px;
+}
+
+#btn{
+display:flex;
+column-gap: 10px;
+/* border:2px solid red; */
+margin-left: 50px;
+margin-top: 20px;
+}
+

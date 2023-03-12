@@ -1,47 +1,103 @@
-import React, { useContext } from 'react'
+// import { Table, TableBody, TableHead, TableRow } from '@material-ui/core'
+import { Table, TableCell, TableRow } from "@material-ui/core";
+import React, { useContext } from "react";
 // import { TableContainer, TableHead, TableBody, TableCell, TableRow, Table } from '@material-ui/core'
-import { multistepContext } from '../StepContext'
-import Styles from '../Styles/DisplayData.module.css'
+import { multistepContext } from "../StepContext";
+import Styles from "../Styles/DisplayData.module.css";
 
 const DisplayData = () => {
-    const { finalData } = useContext(multistepContext)
+  const { finalData } = useContext(multistepContext);
 
-    return (
-        <div div className={Styles.maindiv}>
-            <h1 id={Styles.heading}>Data Added Successfully</h1>
-            <div>
-                {finalData.map((e) => {
-                    return (
-                        <div>
-                            <p>Name : {e.firstname}{e.lastname}</p>
-                            <p>FirstName : {e.firstname}</p>
-                            <p>MiddleName : {e.middlename}</p>
-                            <p>LastName : {e.lastname}</p>
-                            <p>MobileNo : {e.contact}</p>
-                            <p>Email : {e.email}</p>
-                            <p>Birthday : {e.birthday}</p>
-                            <p>Age : {e.age}</p>
-                            <p>BloodGroup : {e.blood}</p>
-                            <p>Height : {e.height}</p>
-                            <p>Wight : {e.weight}</p>
-                            <p>Gender : </p>
-                            <p>MaritalStatus : </p>
-                            <p>AddressLine1 : {e.address1}</p>
-                            <p>AddressLine2 : {e.address2}</p>
-                            <p>City : {e.city}</p>
-                            <p>State : {e.city}</p>
-                            <p>Country : {e.country}</p>
-                            <p>Pincode : {e.postcode}</p>
-
-                        </div>
-                    )
-                })}
-
+  return (
+    <div div className={Styles.maindiv}>
+      <h1 id={Styles.heading}>Data Added Successfully</h1>
+      <div>
+        {finalData.map((e) => {
+          return (
+            <div className={Styles.box}>
+              <Table>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                  <TableCell>
+                    {e.firstname}
+                    {e.lastname}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>Firstname</TableCell>
+                  <TableCell>{e.firstname}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>LastName</TableCell>
+                  <TableCell>{e.lastname}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> MobileNo</TableCell>
+                  <TableCell>{e.contact}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> Email</TableCell>
+                  <TableCell> {e.email}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> Birthday</TableCell>
+                  <TableCell>{e.birthday}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> Age</TableCell>
+                  <TableCell>{e.age}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> BloodGroup</TableCell>
+                  <TableCell>{e.blood}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>Height</TableCell>
+                  <TableCell>{e.height}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>Weight</TableCell>
+                  <TableCell>{e.weight}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>Gender</TableCell>
+                  <TableCell>{e.gender}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>MaritalStatus</TableCell>
+                <TableCell>{e.weight}</TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell> AddressLine1</TableCell>
+                  <TableCell>{e.address1}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>AddressLine2</TableCell>
+                  <TableCell>{e.address2}</TableCell>
+                </TableRow>
+                <TableRow>
+                 <TableCell> City </TableCell>
+                  <TableCell>{e.city}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>State</TableCell>
+                  <TableCell>{e.state}</TableCell>
+                </TableRow>
+                <TableRow>
+                 <TableCell> Country</TableCell>
+                  <TableCell>{e.country}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>  Pincode</TableCell>
+                  <TableCell>{e.postcode}</TableCell>
+                </TableRow>
+              </Table>
             </div>
-        </div>
-    )
-}
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
-export default DisplayData
-
-
+export default DisplayData;

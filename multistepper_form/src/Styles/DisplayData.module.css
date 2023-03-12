@@ -1,5 +1,6 @@
 #heading{
     color:green;
+    text-align: left;
 }
 
 .maindiv{
@@ -11,3 +12,4 @@
     margin-top: 30px;
     border-radius: 20px;
 }
+

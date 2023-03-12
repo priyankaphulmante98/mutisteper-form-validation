@@ -3,6 +3,8 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  InputLabel,
+  MenuItem,
   Radio,
   RadioGroup,
   Select,
@@ -28,7 +30,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-        />
+          required/>
         <span> </span>
 
         <TextField
@@ -41,6 +43,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
       </div>
       <div>
@@ -54,6 +57,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
 
         <span> </span>
@@ -68,6 +72,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
       </div>
 
@@ -80,6 +85,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
         <span> </span>
 
@@ -94,6 +100,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
       </div>
       <div>
@@ -105,28 +112,36 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
         <span> </span>
 
-        <TextField
-          label="Blood Group"
-          className={Styles.label}
-          value={userData["blood"]}
-          onChange={(e) => setUserData({ ...userData, blood: e.target.value })}
-          margin="normal"
-          variant="outlined"
-          color="secondary"
-        >
-          {/* <ption>O+</ption>
-               <option>O-</option>
-               <option>A+</option>
-               <option>A-</option>
-               <option>B+</option>
-               <option>B-</option>
-               <option>AB+</option>
-               <option>AB-</option> */}
-        </TextField>
+        <FormControl>
+          <Select
+            label="Blood Group"
+            className={Styles.label}
+            value={userData["blood"]}
+            onChange={(e) =>
+              setUserData({ ...userData, blood: e.target.value })
+            }
+            margin="normal"
+            variant="outlined"
+            color="secondary"
+            required
+          >
+            <MenuItem value={""}>Select Blood Group</MenuItem>
+            <MenuItem value={"O+"}>O+</MenuItem>
+            <MenuItem value={"A+"}>A+</MenuItem>
+            <MenuItem value={"B+"}>B+</MenuItem>
+            <MenuItem value={"AB+"}>AB+</MenuItem>
+            <MenuItem value={"A-"}>A-</MenuItem>
+            <MenuItem value={"B-"}>B-</MenuItem>
+            <MenuItem value={"O-"}>O-</MenuItem>
+            <MenuItem value={"AB-"}>AB-</MenuItem>
+          </Select>
+        </FormControl>
       </div>
+      <span></span>
 
       <div>
         <TextField
@@ -137,6 +152,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
 
         <span> </span>
@@ -149,10 +165,9 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
+          required
         />
       </div>
-
-      <span></span>
 
       <FormControl
         className={Styles.label}
@@ -161,9 +176,10 @@ const FirstStep = () => {
         margin="normal"
         variant="outlined"
         color="secondary"
+        required
       >
-        <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
-        <RadioGroup
+        <FormLabel className={Styles.lab1} >Gender</FormLabel>
+        <RadioGroup className={Styles.radiobtn}
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
@@ -176,18 +192,19 @@ const FirstStep = () => {
 
       <span></span>
 
-      <FormControl
+      <FormControl  
         className={Styles.label}
         value={userData["maritial"]}
         onChange={(e) => setUserData({ ...userData, maritial: e.target.value })}
         margin="normal"
         variant="outlined"
         color="secondary"
+        required
       >
-        <FormLabel id="demo-row-radio-buttons-group-label">
+        <FormLabel className={Styles.lab2}>
           Maritial Status
         </FormLabel>
-        <RadioGroup
+        <RadioGroup className={Styles.radiobtn}
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
@@ -208,16 +225,16 @@ const FirstStep = () => {
       </FormControl>
 
       <span></span>
-  
-      <div>
-        <Button variant="contained" color="secondary">
+
+      <section id={Styles.btn}>
+        <Button id="btn1" variant="contained" color="secondary">
           BACK
         </Button>
         <span> </span>
-        <Button variant="contained" color="primary" onClick={() => setStep(2)}>
+        <Button  id="btn2" variant="contained" color="primary" onClick={() => setStep(2)}>
           NEXT
         </Button>
-      </div>
+      </section>
     </div>
   );
 };
