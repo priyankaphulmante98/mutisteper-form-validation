@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   Button,
   FormControl,
+  InputLabel,
   MenuItem,
   Select,
   TextField,
@@ -13,12 +14,25 @@ const SecondStep = () => {
   const { setStep, userData, setUserData, submitData } =
     useContext(multistepContext);
 
+    function handleNext(){
+
+      const {address1, address2, state, country, city, postcode} = userData;
+    
+      console.log(address1, address2, state, country, city, postcode)
+      if(address1 && address2 && state && country && city && postcode)
+      {
+        submitData()
+
+      }
+    
+    }
+
   return (
     <div className={Styles.maindiv}>
       <div>
         <TextField
           label="Address Line 1"
-          style={{ width: "500px" }}
+         className={Styles.label}
           value={userData["address1"]}
           onChange={(e) =>
             setUserData({ ...userData, address1: e.target.value })
@@ -30,7 +44,7 @@ const SecondStep = () => {
         <span> </span>
         <TextField
           label="Address Line 2"
-          style={{ width: "500px" }}
+          className={Styles.label}
           value={userData["address2"]}
           onChange={(e) =>
             setUserData({ ...userData, address2: e.target.value })
@@ -42,17 +56,27 @@ const SecondStep = () => {
       </div>
       <span> </span>
       <div>
+
+
+
       <FormControl>
-          <Select
-            label="State"
-            style={{ width: "500px" }}
-            value={userData["state"]}
-            onChange={(e) => setUserData({ ...userData, state: e.target.value })}
-            margin="normal"
-            variant="outlined"
-            color="secondary"
-          >
-            <MenuItem value={""}>Select Contry</MenuItem>
+         <InputLabel
+          variant="outlined"
+          color="secondary"
+        className={Styles.inputlabel} >State</InputLabel>
+        <Select
+          className={Styles.blood}
+          onChange={(e) =>
+            setUserData({ ...userData, state: e.target.value })
+          }
+          margin="normal"
+          variant="outlined"
+          color="secondary"
+          label="state"
+        >
+          <MenuItem value="state">
+            Select Blood
+          </MenuItem>
             <MenuItem value={"maharashtra"}>Maharashtra</MenuItem>
             <MenuItem value={"karnatak"}>karnatak</MenuItem>
             <MenuItem value={"andhrapradesh"}>Andhrapradesh</MenuItem>
@@ -66,18 +90,24 @@ const SecondStep = () => {
 
         <span> </span>
         <FormControl>
-          <Select
-            label="Country"
-            style={{ width: "500px" }}
-            value={userData["country"]}
-            onChange={(e) =>
-              setUserData({ ...userData, country: e.target.value })
-            }
-            margin="normal"
-            variant="outlined"
-            color="secondary"
-          >
-            <MenuItem value={""}>Select Contry</MenuItem>
+          <InputLabel 
+          variant="outlined"
+          color="secondary"
+        className={Styles.inputlabel} >Country</InputLabel>
+        <Select
+          className={Styles.blood}
+          onChange={(e) =>
+            setUserData({ ...userData, country: e.target.value })
+          }
+          margin="normal"
+          variant="outlined"
+          color="secondary"
+          label="blood"
+        >
+          <MenuItem value="">
+            country
+          </MenuItem>
+          
             <MenuItem value={"India"}>INDIA</MenuItem>
             <MenuItem value={"Japan"}>JAPAN</MenuItem>
             <MenuItem value={"Jermany"}>JERMANY</MenuItem>
@@ -96,25 +126,40 @@ const SecondStep = () => {
       
 
       <div>
-      <TextField
-          label="City"
-          style={{ width: "500px" }}
-          value={userData["city"]}
+
+<FormControl>
+          <InputLabel 
+          variant="outlined"
+          color="secondary"
+        className={Styles.inputlabel} >City</InputLabel>
+        <Select
+          className={Styles.blood}
           onChange={(e) =>
             setUserData({ ...userData, city: e.target.value })
           }
           margin="normal"
           variant="outlined"
           color="secondary"
-        />
+          label="City"
+        >
+          <MenuItem value="">
+           city
+          </MenuItem>
+          
+            <MenuItem value={"pune"}>PUNE</MenuItem>
+            <MenuItem value={"goa"}>GOA</MenuItem>
+            <MenuItem value={"mumbai"}>MUMbai</MenuItem>
+            <MenuItem value={"latur"}>LATUR</MenuItem>
+        
+          </Select>
+        </FormControl>
 
-      
         <span> </span>
        
 
         <TextField
           label="Pin Code"
-          style={{ width: "500px" }}
+          className={Styles.label}
           value={userData["postcode"]}
           onChange={(e) =>
             setUserData({ ...userData, postcode: e.target.value })
@@ -134,7 +179,9 @@ const SecondStep = () => {
           BACK
         </Button>
         <span> </span>
-        <Button variant="contained" color="primary" onClick={submitData}>
+        <Button variant="contained" color="primary"onClick={() => 
+        
+        handleNext()}>
           SUBMIT
         </Button>
       </div>

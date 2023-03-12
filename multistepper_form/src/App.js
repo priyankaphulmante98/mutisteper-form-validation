@@ -7,6 +7,7 @@ import FirstStep from './Components/FirstStep';
 import SecondStep from './Components/SecondStep';
 import { multistepContext } from './StepContext';
 
+
 function App() {
   const {currentStep,finalData} = useContext(multistepContext)
   function showStep(step){
@@ -19,8 +20,9 @@ function App() {
   }
   return (
     <div className="App">
+      <div id="container">
        <h1 id="mainHeading">React js Multistep Application</h1>
-     <div className='center-stepper'>
+     <div className='center-stepper' >
           <Stepper className="stepper" activeStep={currentStep-1} orientation="horizontal">
             <Step> 
               <StepLabel>User Information</StepLabel>
@@ -33,9 +35,12 @@ function App() {
             </Step>
           </Stepper>
         </div>
+        </div>
+       <div>
        {showStep(currentStep)}
+       </div>
        <br/>
-       {/* {finalData.length > 0 ? <DisplayData/> : ""} */}
+      
       
     </div>
   );

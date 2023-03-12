@@ -1,7 +1,5 @@
-// import { Table, TableBody, TableHead, TableRow } from '@material-ui/core'
 import { Table, TableCell, TableRow } from "@material-ui/core";
 import React, { useContext } from "react";
-// import { TableContainer, TableHead, TableBody, TableCell, TableRow, Table } from '@material-ui/core'
 import { multistepContext } from "../StepContext";
 import Styles from "../Styles/DisplayData.module.css";
 

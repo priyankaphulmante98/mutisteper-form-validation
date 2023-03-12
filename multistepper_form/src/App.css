@@ -1,17 +1,35 @@
 .App {
   text-align: center;
+  width:100%;
 }
 .center-stepper{
   display: flex;
   justify-content: center;
+  align-items: center;
+  /* border:5px solid red; */
+  width:50%;
+  
+  margin-left: 230px;
+
 }
 
 #mainHeading{
   color:red;
+  text-align: center;
+  margin-left: 200px;
 }
 
 .stepper{
-  width:50%;
+  width:100%;
+}
+
+#container{
+  width:90%;
+  /* border:2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 

@@ -15,11 +15,25 @@ import { multistepContext } from "../StepContext";
 import Styles from "../Styles/FirstStep.module.css";
 
 const FirstStep = () => {
+
+
   const { setStep, userData, setUserData } = useContext(multistepContext);
 
+
+function handleNext(){
+
+  const {firstname, middlename, lastname, contact, email, birthday, age, maritial,gender,weight,height,blood} = userData;
+
+  if(firstname && middlename&& lastname&& contact&& email&& birthday&& age&& maritial&&gender&&weight&&height&&blood){
+    setStep(2)
+  }
+ 
+
+
+}
   return (
     <div className={Styles.maindiv}>
-      <div>
+      <div className={Styles.inputDiv} >
         <TextField
           label="First name"
           className={Styles.label}
@@ -30,7 +44,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required/>
+          />
         <span> </span>
 
         <TextField
@@ -43,10 +57,10 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required
+          
         />
       </div>
-      <div>
+      <div className={Styles.inputDiv}>
         <TextField
           label="Last name"
           className={Styles.label}
@@ -57,7 +71,7 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required
+          
         />
 
         <span> </span>
@@ -72,11 +86,11 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required
+          
         />
       </div>
 
-      <div>
+      <div className={Styles.inputDiv}>
         <TextField
           label="Email"
           className={Styles.label}
@@ -85,12 +99,11 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required
+          
         />
         <span> </span>
 
         <TextField
-          label="Birthday"
           className={Styles.label}
           type="date"
           value={userData["birthday"]}
@@ -100,10 +113,10 @@ const FirstStep = () => {
           margin="normal"
           variant="outlined"
           color="secondary"
-          required
+          
         />
       </div>
-      <div>
+      <div className={Styles.inputDiv}>
         <TextField
           label="Age"
           className={Styles.label}
@@ -116,20 +129,29 @@ const FirstStep = () => {
         />
         <span> </span>
 
-        <FormControl>
-          <Select
-            label="Blood Group"
-            className={Styles.label}
-            value={userData["blood"]}
-            onChange={(e) =>
-              setUserData({ ...userData, blood: e.target.value })
-            }
-            margin="normal"
-            variant="outlined"
-            color="secondary"
-            required
-          >
-            <MenuItem value={""}>Select Blood Group</MenuItem>
+
+
+
+
+   
+      <FormControl>
+        <InputLabel 
+          variant="outlined"
+          color="secondary"
+        className={Styles.inputlabel} >Blood</InputLabel>
+        <Select
+          className={Styles.blood}
+          onChange={(e) =>
+            setUserData({ ...userData, blood: e.target.value })
+          }
+          margin="normal"
+          variant="outlined"
+          color="secondary"
+          label="blood"
+        >
+          <MenuItem value="blood">
+            Select Blood
+          </MenuItem>
             <MenuItem value={"O+"}>O+</MenuItem>
             <MenuItem value={"A+"}>A+</MenuItem>
             <MenuItem value={"B+"}>B+</MenuItem>
@@ -138,12 +160,13 @@ const FirstStep = () => {
             <MenuItem value={"B-"}>B-</MenuItem>
             <MenuItem value={"O-"}>O-</MenuItem>
             <MenuItem value={"AB-"}>AB-</MenuItem>
-          </Select>
-        </FormControl>
+        </Select>
+      </FormControl>
+
       </div>
       <span></span>
 
-      <div>
+      <div className={Styles.inputDiv}>
         <TextField
           label="Height"
           className={Styles.label}
@@ -168,7 +191,7 @@ const FirstStep = () => {
           required
         />
       </div>
-
+ <div className={Styles.inputDiv}>
       <FormControl
         className={Styles.label}
         value={userData["gender"]}
@@ -178,8 +201,8 @@ const FirstStep = () => {
         color="secondary"
         required
       >
-        <FormLabel className={Styles.lab1} >Gender</FormLabel>
-        <RadioGroup className={Styles.radiobtn}
+        <FormLabel className={Styles.genderLabel} >Gender</FormLabel>
+        <RadioGroup 
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
@@ -201,7 +224,7 @@ const FirstStep = () => {
         color="secondary"
         required
       >
-        <FormLabel className={Styles.lab2}>
+        <FormLabel className={Styles.statusLabel}>
           Maritial Status
         </FormLabel>
         <RadioGroup className={Styles.radiobtn}
@@ -222,7 +245,10 @@ const FirstStep = () => {
           />
           <FormControlLabel value="other" control={<Radio />} label="Other" />
         </RadioGroup>
-      </FormControl>
+      </FormControl>   
+
+      </div>                                                                                                       
+      
 
       <span></span>
 
@@ -231,7 +257,10 @@ const FirstStep = () => {
           BACK
         </Button>
         <span> </span>
-        <Button  id="btn2" variant="contained" color="primary" onClick={() => setStep(2)}>
+        <Button  id="btn2" variant="contained" color="primary" onClick={() => 
+        
+          handleNext()}>
+         
           NEXT
         </Button>
       </section>
